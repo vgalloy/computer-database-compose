@@ -1,0 +1,12 @@
+computer-database-dind:
+ container_name: computer-database-dind
+ image: docker:dind
+ privileged: true
+
+computer-database-jenkins:
+ container_name: computer-database-jenkins
+ image: vgalloy/computer-database-jenkins
+ links: 
+  - "computer-database-dind:docker"
+ ports: 
+  - "10080:8080"
